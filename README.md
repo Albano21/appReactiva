@@ -14,4 +14,4 @@ Participantes:
   - Diego Suarez
   - Albano Zupichiatti
   
-  Inicio: 30/09/2022
+  Inicio: 28/09/2022
