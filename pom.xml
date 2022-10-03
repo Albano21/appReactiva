@@ -39,6 +39,18 @@
             <version>1.0.1.RELEASE</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/dev.miku/r2dbc-mysql -->
+        <dependency>
+            <groupId>dev.miku</groupId>
+            <artifactId>r2dbc-mysql</artifactId>
+            <version>0.8.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-r2dbc</artifactId>
+        </dependency>
+
 
 
     </dependencies>

@@ -1,15 +1,13 @@
 package com.example.appreactiva.entity;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
-//import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 import java.io.Serializable;
 
-//@Entity
-//@Table(name = "personas2")
+@Table(name = "personas2")
 public class Persona implements Serializable {
 
-    //@Id
+    @Id
     private int documento;
     private String nombre;
     private String apellido;
