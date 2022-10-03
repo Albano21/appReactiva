@@ -13,3 +13,5 @@ Tecnologias utilizadas:
 Participantes:
   - Diego Suarez
   - Albano Zupichiatti
+  
+  Inicio: 30/09/2022
