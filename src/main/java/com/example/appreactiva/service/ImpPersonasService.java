@@ -22,4 +22,38 @@ public class ImpPersonasService implements IntPersonasService{
     public Mono<Persona> getByDocumento(int doc) {
         return personasRepository.getByDocumento(doc);
     }
+
+    @Override
+    public Mono<Persona> addPersona(Persona p) {
+        return personasRepository.addPersona(p.getDocumento(), p.getNombre(), p.getApellido(), p.getEdad());
+    }
+
+    @Override
+    public Mono<Void> deleteByDocumento(int documento) {
+        return personasRepository.deleteByDocumento(documento);
+    }
+
+
+
+    /*
+    @Override
+    public Mono<Persona> addPersona(int doc, Persona p){
+        String respuesta = "";
+        //Persona p = personaMono.toFuture().getNow(null);
+        Mono<Persona> personaExistente = personasRepository.getByDocumento(doc);
+
+        if(personaExistente == null){
+            personasRepository.addPersona(p.getDocumento(), p.getNombre(), p.getApellido(), p.getEdad());
+            return Mono.just(p);
+
+        }
+        else{
+            return personaExistente;
+        }
+
+
+    }
+
+     */
+
 }

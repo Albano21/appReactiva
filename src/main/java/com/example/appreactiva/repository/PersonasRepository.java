@@ -24,4 +24,21 @@ public interface PersonasRepository extends R2dbcRepository<Persona, Integer> {
             "   documento = :doc\n")
     Mono<Persona> getByDocumento(int doc);
 
+    @Query(value = "" +
+            "INSERT\n" +
+            "INTO\n" +
+            "   personas2\n" +
+            "(documento, nombre, apellido, edad)\n" +
+            "VALUES\n" +
+            "(:doc , :nom , :ape , :edad )\n")
+    Mono<Persona> addPersona(int doc, String nom, String ape, int edad);
+
+    @Query(value = "" +
+            "DELETE\n" +
+            "FROM\n" +
+            "   personas2\n" +
+            "WHERE\n" +
+            "   documento = :doc\n")
+    Mono<Void> deleteByDocumento(int doc);
+
 }

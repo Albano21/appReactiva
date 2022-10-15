@@ -9,4 +9,10 @@ public interface IntPersonasService {
     Flux<Persona> getPersonas();
 
     Mono<Persona> getByDocumento(int doc);
+
+    Mono<Persona> addPersona(Persona persona);
+
+    Mono<Void> deleteByDocumento(int Documento);
+
+    //Mono<Persona> addPersona(int doc, Mono<Persona> personaMono);
 }
