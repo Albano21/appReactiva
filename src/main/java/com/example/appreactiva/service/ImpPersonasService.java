@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
+
+import static java.util.Objects.isNull;
+
 @Service
 public class ImpPersonasService implements IntPersonasService{
 
@@ -29,9 +33,36 @@ public class ImpPersonasService implements IntPersonasService{
     }
 
     @Override
+    public Mono deleteByDocumento(int doc) {
+        Mono<Persona> personaABorrar = personasRepository.getByDocumento(doc);
+        if (isNull(personaABorrar)) {
+            return Mono.empty();
+        }
+        return personasRepository.getByDocumento(doc)
+                .switchIfEmpty(Mono.empty()).filter(Objects::nonNull)
+                .flatMap(personaABorrar2 -> personasRepository.delete(personaABorrar2)
+                        .then(Mono.just(personaABorrar2)));
+        /*
+
+
+                else {
+            personasRepository.deleteByDocumento(doc);
+            return Mono.just(personaABorrar);
+        }
+
+         */
+    }
+}
+
+
+    /*
+    @Override
     public Mono<Void> deleteByDocumento(int documento) {
+
         return personasRepository.deleteByDocumento(documento);
     }
+
+     */
 
 
 
@@ -56,4 +87,4 @@ public class ImpPersonasService implements IntPersonasService{
 
      */
 
-}
+
